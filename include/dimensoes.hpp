@@ -1,8 +1,6 @@
 #ifndef DIMENSOES_H
 #define DIMENSOES_H
 
-#include <iostream>
-
 using namespace std;
 
 class Dimensoes{
