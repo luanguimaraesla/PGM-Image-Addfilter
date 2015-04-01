@@ -3,8 +3,9 @@
 
 #include "dimensoes.hpp"
 #include <string>
+#include <fstream>
 
-
+using namespace std;
 
 class Imagem{
 	private:
@@ -19,7 +20,9 @@ class Imagem{
 		string getIdentificador();
 		void setPixels(int *pixels);
 		int *getPixels();
-		virtual FILE *abrirImagem(string caminho);	
+		virtual fstream abrirImagem(string caminho);
+		virtual void salvar();
+		virtual void salvar(string nome, string caminho);	
 };
 
 #endif

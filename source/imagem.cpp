@@ -1,5 +1,6 @@
 #include "imagem.hpp"
 #include "dimensoes.hpp"
+#include <fstream>
 
 using namespace std;
 
