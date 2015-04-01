@@ -27,3 +27,8 @@ void Dimensoes::setLargura(int largura){
 int Dimensoes::getLargura(){
 	return largura;
 }
+
+void Dimensoes::setDimensoes(int altura, int largura){
+	setAltura(altura);
+	setLargura(largura);
+}

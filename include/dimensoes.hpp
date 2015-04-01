@@ -14,6 +14,7 @@ class Dimensoes{
 		int getAltura();
 		void setLargura(int largura);
 		int getLargura();
+		void setDimensoes(int altura, int largura);
 };
 
 
