@@ -5,6 +5,7 @@
 #define NAO_EXISTE 2
 
 #include "imagem.hpp"
+#include <iostream>
 #include <string>
 #include <fstream>
 
@@ -12,17 +13,18 @@
 class ImagemPGM : public Imagem{
 	private:
 		int nivelMaximoDeCinza;
-	
-		void descompactarImagem(fstream arquivo);
-		fstream abrirImagem(string caminho);
-		void validarPGM(string identificador);
+		string comentario;
 		
 	public:
-		explicit ImagemPGM(string caminho);
+		ImagemPGM();
+		ImagemPGM(string caminho);
+		void abrirImagem(string caminho);
 		void salvar();
 		void salvar(string nome, string caminho);
 		void setNivelMaximoDeCinza(int nivel);
 		int getNivelMaximoDeCinza();
+		void setComentario(string comentario);
+		string getComentario();
 }
 
 #endif
