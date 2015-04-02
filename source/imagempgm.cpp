@@ -1,19 +1,14 @@
-#include "imagem.hpp"
 #include "imagempgm.hpp"
-#include <iostream>
-#include <fstream>
-#include <string>
 #include <stdlib.h>
 
 using namespace std;
 
-ImagemPGM::ImagemPGM(){
-
+ImagemPGM::ImagemPGM():Imagem(){
+	setCaminho("NONE");
 }
 
 ImagemPGM::ImagemPGM(string caminho){
-	
-		
+	abrirImagem(caminho);	
 }
 
 void ImagemPGM::abrirImagem(string caminho){
@@ -82,10 +77,12 @@ void ImagemPGM::abrirImagem(string caminho){
 
 void salvar(){
 	//CONSTRUIR MÉTODO
+	cout << "CRIAR SALVAR";
 }
 
 void salvar(string nome, string caminho){
 	//CONSTRUIR MÉTODO
+	cout << "CRIAR SALVAR";
 }
 
 void setNivelMaximoDeCinza(int nivelMaximoDeCinza){

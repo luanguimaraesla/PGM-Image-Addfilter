@@ -1,12 +1,8 @@
 #ifndef IMAGEMPGM_H
 #define IMAGEMPGM_H
 
-#define EXISTE 1
-#define NAO_EXISTE 2
-
 #include "imagem.hpp"
 #include <iostream>
-#include <string>
 #include <fstream>
 
 

@@ -8,10 +8,10 @@ Imagem::Imagem(){
 	dimensoes.setDimensoes(0,0);
 }
 
-Imagem::Imagem(int identificador, int altura, int largura, int *pixels){
+Imagem::Imagem(string identificador, int altura, int largura, int *pixels){
 	setIdentificador(identificador);
 	setPixels(pixels);
-	setDimensoes(altura, largura);
+	dimensoes.setDimensoes(altura, largura);
 }
 
 void Imagem::setIdentificador(string identificador){

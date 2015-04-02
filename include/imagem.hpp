@@ -15,7 +15,7 @@ class Imagem{
 		
 	public:
 		Imagem();
-		Imagem(int identificador, int altura, int largura, int *pixels);
+		Imagem(string identificador, int altura, int largura, int *pixels);
 		void setIdentificador(string identificador);
 		string getIdentificador();
 		void setPixels(int *pixels);
