@@ -1,6 +1,5 @@
 #include "imagem.hpp"
 #include "dimensoes.hpp"
-#include <fstream>
 
 using namespace std;
 
@@ -29,5 +28,13 @@ void Imagem::setPixels(int *pixels){
 
 int * Imagem::getPixels(){
 	return pixels;
+}
+
+void Imagem::setCaminho(string caminho){
+	this->caminho = caminho;
+}
+
+string Imagem::getCaminho(){
+	return caminho;
 }
 

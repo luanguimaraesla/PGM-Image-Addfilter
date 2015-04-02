@@ -3,12 +3,12 @@
 
 #include "dimensoes.hpp"
 #include <string>
-#include <fstream>
 
 using namespace std;
 
 class Imagem{
 	private:
+		string caminho;
 		string identificador;
 		Dimensoes dimensoes;
 		int *pixels;
@@ -20,7 +20,9 @@ class Imagem{
 		string getIdentificador();
 		void setPixels(int *pixels);
 		int *getPixels();
-		virtual fstream abrirImagem(string caminho);
+		void setCaminho(string caminho);
+		string getCaminho();
+		virtual void abrirImagem(string caminho);
 		virtual void salvar();
 		virtual void salvar(string nome, string caminho);	
 };
