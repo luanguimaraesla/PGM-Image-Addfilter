@@ -1,10 +1,10 @@
 #ifndef IMAGEM_H
 #define IMAGEM_H
-
-#include "dimensoes.hpp"
 #include <string>
+#include "dimensoes.hpp"
 
-using namespace std;
+
+//using namespace std;
 
 class Imagem{
 	private:
@@ -22,9 +22,12 @@ class Imagem{
 		int *getPixels();
 		void setCaminho(string caminho);
 		string getCaminho();
-		virtual void abrirImagem(string caminho);
-		virtual void salvar();
-		virtual void salvar(string nome, string caminho);	
+		void setDimensoes(int largura, int altura);
+		int getAltura();
+		int getLargura();
+		virtual void abrirImagem(string caminho) = 0;
+		virtual void salvar() = 0;
+		virtual void salvar(string nome, string caminho) = 0;	
 };
 
 #endif

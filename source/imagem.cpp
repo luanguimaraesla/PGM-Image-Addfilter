@@ -5,7 +5,7 @@ using namespace std;
 
 Imagem::Imagem(){
 	setIdentificador("NONE");
-	dimensoes.setDimensoes(0,0);
+	setDimensoes(0,0);
 }
 
 Imagem::Imagem(string identificador, int altura, int largura, int *pixels){
@@ -36,5 +36,18 @@ void Imagem::setCaminho(string caminho){
 
 string Imagem::getCaminho(){
 	return caminho;
+}
+
+void Imagem::setDimensoes(int largura, int altura){
+	dimensoes.setAltura(altura);
+	dimensoes.setLargura(largura);
+}
+
+int Imagem::getAltura(){
+	return dimensoes.getAltura();
+}
+
+int Imagem::getLargura(){
+	return dimensoes.getLargura();
 }
 
