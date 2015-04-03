@@ -14,51 +14,61 @@ ImagemPGM::ImagemPGM(string caminho){
 
 void ImagemPGM::abrirImagem(string caminho){
 
-	ifstream arquivo; //variável que armazena o arquivo da imagem
-	string id; //armazena o identificador da imagem, no caso da PGM (P5)
-	string comentario; //armazena os comentarios feitos
-	int x, y, contador; //x armazena quantas colunas há na imagem, y, quantas linhas e contador é auto explicativo
-	int *pixels; // ponteiro que apontará para as posições alocadas para guardar os pixels
-	int nivelMaximoDeCinza; // armazena o nível máximo de cinza da imagem PGM
-	unsigned char *reader; // necessário para ler corretamente o valor binário de 1byte lido do arquivo para cada pixel
+	ifstream arquivo; 	// Variável que armazenará o arquivo da imagem.
+	string id; 		// Armazena o identificador da imagem, no caso da PGM ANSI, o identificador é P5.
+	string comentario; 	// Armazena os comentários da imagem.
+	int x, y, contador; 	// x armazena quantas colunas há na imagem, y, quantas linhas e contador é auto explicativo.
+	int *pixels; 		// Ponteiro que apontará as posições alocadas para guardar os pixels.
+	int nivelMaximoDeCinza; // Armazena o nível máximo de cinza da imagem PGM.
+	unsigned char *reader; 	// Necessário para interpretar corretamente o valor binário de 1byte lido do arquivo para cada pixel.
 
 	try{
-		//tenta abrir a imagem com o caminho fornecido
+		// Tenta abrir o arquivo PGM com o caminho fornecido.
 		arquivo.open(caminho.c_str(), ios::in | ios::binary);
-		// verificando identidade da imagem
+		
+		// Lê a linha que contém o identificador da imagem.
 		getline(arquivo, id);
-		//compara a primeira linha com P5 para verificar
+
+		// Compara a primeira linha com "P5" para verificar se é uma imagem do tipo PGM
 		if(id.compare("P5") != 0){
+			// Se não for, imprime-se uma mensagem de erro e nada do que vem a seguir será executado.
 			cout << "Desculpe, abra um arquivo PGM!" <<endl;
 		}
 		else{
 			cout << "Arquivo PGM!" <<endl;
-			//lendo comentario
+			// Lendo a linha que contém o comentário.
 			getline(arquivo, comentario);
 			cout << "Comentario: " <<comentario <<endl;
-			//lendo dimensões e nível máximo de cinza da imagem
+			
+			// Lendo dimensões e nível máximo de cinza da imagem.
 			arquivo >> x;
 			arquivo >> y;
 			arquivo >> nivelMaximoDeCinza;
 			cout << "X: " << x << " Y: " << y << " Nivel: "<< nivelMaximoDeCinza <<endl;
 
-			//alocando espaço na memória para o vetor que armazenará os pixels
-			//NOTA: otimizar essa operação para arrays em C++
+			// Criando o vetor que armazenará os pixels.
 			pixels = (int *) new int [sizeof(int) * x * y];
+
+			// Criando o vetor que irá ler o binário dos pixels.
 			reader = (unsigned char *) new unsigned char [sizeof(unsigned char) * x * y];
+			
+			// Armazenando pixel por pixel dentro de cada posição do vetor reader.
 			arquivo.read(reinterpret_cast<char *>(reader), (y*x)*sizeof(unsigned char));		
 
-			for(contador = 0; contador < x * y; contador++){
-				 pixels[contador] = (int) reader[contador];
-				 cout << pixels[contador];
-			}
-			//setando atributos do objeto
+			// Convertendo os valores lidos para inteiro e armazenando na variável pixels.
+			for(contador = 0; contador < x * y; contador++) 
+				pixels[contador] = (int) reader[contador];
+				
+			
+			// Setando atributos do objeto criado.
 			setCaminho(caminho);
 			setDimensoes(x,y);
 			setComentario(comentario);
 			setIdentificador(id);
 			setNivelMaximoDeCinza(nivelMaximoDeCinza);
 			setPixels(pixels);
+
+			delete [] reader; // Libera o espaço de memória do vetor.
 	
 		}
 	}
@@ -67,15 +77,21 @@ void ImagemPGM::abrirImagem(string caminho){
 		cout << "Desculpe, operacao falhou! Exception Nº " << e << endl;
 	}
 
-	//fecha o arquivo
 	arquivo.close();
 	
 }
-
+/*
+ *	Salva o arquivo PGM no mesmo caminho em que ele foi aberto.
+ */
 void ImagemPGM::salvar(){
 	salvar(getCaminho());
 }
 
+/*
+ *	Salva o arquivo com um caminho personalizado.
+ *	Esse método é muito semelhante ao método de leitura e realiza exatamente o procedimento inverso.
+ *	Note que usa-se o método write para escrever cada posição do vetor que contém os pixels no arquivo.
+ */
 void ImagemPGM::salvar(string caminho){
 	ofstream novoArquivo;
 	int contador;
