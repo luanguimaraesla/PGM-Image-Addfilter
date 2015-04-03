@@ -21,6 +21,6 @@ class ImagemPGM : public Imagem{
 		int getNivelMaximoDeCinza();
 		void setComentario(string comentario);
 		string getComentario();
-}
+};
 
 #endif
