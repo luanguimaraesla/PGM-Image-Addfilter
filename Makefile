@@ -1,4 +1,5 @@
-BINFOLDER := ./bin/ #VARIAVEIS
+#VARIAVEIS
+BINFOLDER := ./bin/
 INCFOLDER := ./include/
 SRCFOLDER := ./source/
 OBJFOLDER := ./obj/
