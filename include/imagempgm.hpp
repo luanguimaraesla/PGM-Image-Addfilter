@@ -16,7 +16,7 @@ class ImagemPGM : public Imagem{
 		ImagemPGM(string caminho);
 		void abrirImagem(string caminho);
 		void salvar();
-		void salvar(string nome, string caminho);
+		void salvar(string caminho);
 		void setNivelMaximoDeCinza(int nivel);
 		int getNivelMaximoDeCinza();
 		void setComentario(string comentario);

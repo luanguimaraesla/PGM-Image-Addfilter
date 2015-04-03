@@ -27,7 +27,7 @@ class Imagem{
 		int getLargura();
 		virtual void abrirImagem(string caminho) = 0;
 		virtual void salvar() = 0;
-		virtual void salvar(string nome, string caminho) = 0;	
+		virtual void salvar(string caminho) = 0;	
 };
 
 #endif
