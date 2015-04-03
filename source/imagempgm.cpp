@@ -1,5 +1,6 @@
 #include "imagempgm.hpp"
 #include <stdlib.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -16,29 +17,25 @@ void ImagemPGM::abrirImagem(string caminho){
 	ifstream arquivo; //variável que armazena o arquivo da imagem
 	string id; //armazena o identificador da imagem, no caso da PGM (P5)
 	string comentario; //armazena os comentarios feitos
-	int x, y, counter; //x armazena quantas colunas há na imagem, y, quantas linhas e counter é um contador
+	int x, y, contador; //x armazena quantas colunas há na imagem, y, quantas linhas e contador é auto explicativo
 	int *pixels; // ponteiro que apontará para as posições alocadas para guardar os pixels
 	int nivelMaximoDeCinza; // armazena o nível máximo de cinza da imagem PGM
-	unsigned char reader; // necessário para ler corretamente o valor binário de 1byte lido do arquivo para cada pixel
+	unsigned char *reader; // necessário para ler corretamente o valor binário de 1byte lido do arquivo para cada pixel
 
 	try{
 		//tenta abrir a imagem com o caminho fornecido
-		arquivo.open(caminho.c_str());
-		
+		arquivo.open(caminho.c_str(), ios::in | ios::binary);
 		// verificando identidade da imagem
 		getline(arquivo, id);
-		
 		//compara a primeira linha com P5 para verificar
 		if(id.compare("P5") != 0){
 			cout << "Desculpe, abra um arquivo PGM!" <<endl;
 		}
 		else{
 			cout << "Arquivo PGM!" <<endl;
-
 			//lendo comentario
 			getline(arquivo, comentario);
 			cout << "Comentario: " <<comentario <<endl;
-			
 			//lendo dimensões e nível máximo de cinza da imagem
 			arquivo >> x;
 			arquivo >> y;
@@ -47,14 +44,14 @@ void ImagemPGM::abrirImagem(string caminho){
 
 			//alocando espaço na memória para o vetor que armazenará os pixels
 			//NOTA: otimizar essa operação para arrays em C++
-			pixels = (int *) malloc (sizeof(int) * x * y);		
+			pixels = (int *) new int [sizeof(int) * x * y];
+			reader = (unsigned char *) new unsigned char [sizeof(unsigned char) * x * y];
+			arquivo.read(reinterpret_cast<char *>(reader), (y*x)*sizeof(unsigned char));		
 
-			//lendo o resto do arquivo para conseguir os pixels
-			for(counter = 0; counter < (x*y); counter++){
-				arquivo >> reader; //ler o binário e armazenar em reader
-				pixels[counter] = (int)reader; /*transformar o binário em inteiro e armazenar em pixels*/
+			for(contador = 0; contador < x * y; contador++){
+				 pixels[contador] = (int) reader[contador];
+				 cout << pixels[contador];
 			}
-			
 			//setando atributos do objeto
 			setCaminho(caminho);
 			setDimensoes(x,y);
@@ -76,13 +73,34 @@ void ImagemPGM::abrirImagem(string caminho){
 }
 
 void ImagemPGM::salvar(){
-	//CONSTRUIR MÉTODO
-	cout << "CRIAR SALVAR";
+	salvar(getCaminho());
 }
 
-void ImagemPGM::salvar(string nome, string caminho){
-	//CONSTRUIR MÉTODO
-	cout << "CRIAR SALVAR";
+void ImagemPGM::salvar(string caminho){
+	ofstream novoArquivo;
+	int contador;
+	int *pixels = getPixels();
+	unsigned char *pixelsBits;
+	
+	pixelsBits = (unsigned char *) new unsigned char [getAltura() * getLargura()];
+	for(contador = 0; contador < getLargura() * getAltura(); contador++)
+		pixelsBits[contador] = (unsigned char) pixels[contador];
+	
+	try{
+		novoArquivo.open(caminho.c_str(), ios::out | ios::binary);
+		
+		novoArquivo << getIdentificador() << endl;
+		novoArquivo << getComentario() << endl;
+		novoArquivo << getLargura() << " " << getAltura() << endl;
+		novoArquivo << getNivelMaximoDeCinza() << endl;
+		novoArquivo.write(reinterpret_cast<char *>(pixelsBits), (getAltura() * getLargura())*sizeof(unsigned char));
+	}
+	catch(int e){
+		cout << "Desculpe, arquivo nao foi salvo!" << endl;
+	}
+
+	delete [] pixelsBits;
+	novoArquivo.close();
 }
 
 void ImagemPGM::setNivelMaximoDeCinza(int nivel){
