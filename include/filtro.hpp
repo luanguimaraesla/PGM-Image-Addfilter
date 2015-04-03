@@ -7,12 +7,24 @@
 class Filtro{
 	private:
 		vector<int> mascaraEspacial;
+		int tamanho;		
+		int limite;
+		int divisor;
+
 	public:
 		Filtro();
-		Filtro(int *mascaraEspacial);
-		void setMascaraEspacial(int *mascaraEspacial);
-		vector<int> getMascara();
-		void aplicarFiltro(ImagemPGM &imagem);		
+		Filtro(vector<int> mascaraEspacial);
+		Filtro(vector<int> mascaraEspacial, int div);
+		void aplicarFiltro(ImagemPGM &imagem);
+		ImagemPGM aplicarFiltroEmCopia(ImagemPGM imagem);
+		void setMascaraEspacial(vector<int> &mascaraEspacial);
+		vector<int> getMascaraEspacial();
+		void setTamanho(int tamanho);
+		int getTamanho();
+		void setLimite(int limite);
+		int getLimite();
+		void setDivisor(int div);
+		int getDivisor();		
 };
 
 #endif
