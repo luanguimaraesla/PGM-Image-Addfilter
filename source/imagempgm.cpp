@@ -57,7 +57,7 @@ void ImagemPGM::abrirImagem(string caminho){
 			
 			//setando atributos do objeto
 			setCaminho(caminho);
-			dimensoes.setDimensoes(x,y);
+			setDimensoes(x,y);
 			setComentario(comentario);
 			setIdentificador(id);
 			setNivelMaximoDeCinza(nivelMaximoDeCinza);
@@ -75,29 +75,29 @@ void ImagemPGM::abrirImagem(string caminho){
 	
 }
 
-void salvar(){
+void ImagemPGM::salvar(){
 	//CONSTRUIR MÉTODO
 	cout << "CRIAR SALVAR";
 }
 
-void salvar(string nome, string caminho){
+void ImagemPGM::salvar(string nome, string caminho){
 	//CONSTRUIR MÉTODO
 	cout << "CRIAR SALVAR";
 }
 
-void setNivelMaximoDeCinza(int nivelMaximoDeCinza){
-	this->nivelMaximoDeCinza = nivelMaximoDeCinza;
+void ImagemPGM::setNivelMaximoDeCinza(int nivel){
+	this->nivelMaximoDeCinza = nivel;
 }
 
-int getNivelMaximoDeCinza(){
+int ImagemPGM::getNivelMaximoDeCinza(){
 	return nivelMaximoDeCinza;
 }
 
-void setComentario(string comentario){
+void ImagemPGM::setComentario(string comentario){
 	this->comentario = comentario;
 }
 
-string getComentario(){
+string ImagemPGM::getComentario(){
 	return comentario;
 }
 
