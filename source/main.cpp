@@ -1,16 +1,8 @@
-#include <iostream>
-#include "imagempgm.hpp"
-#include "filtronegativo.hpp"
-#include "filtrosmooth.hpp"
-#include "filtrosharpen.hpp"
-
-using namespace std;
+#include "menu.hpp"
 
 int main(){	
-	FiltroSharpen filter;
-	ImagemPGM novaImagem("lena.pgm");
-	ImagemPGM outraImagem;
-	filter.aplicarFiltroEmCopia(novaImagem, outraImagem);
-	outraImagem.salvar("lenacp4.pgm");
+	Menu menu;
+	menu.iniciar();
+
 	return 0;
 }
