@@ -2,11 +2,12 @@
 #include "imagempgm.hpp"
 #include "filtronegativo.hpp"
 #include "filtrosmooth.hpp"
+#include "filtrosharpen.hpp"
 
 using namespace std;
 
 int main(){	
-	FiltroSmooth filter;
+	FiltroSharpen filter;
 	ImagemPGM novaImagem("lena.pgm");
 	ImagemPGM outraImagem;
 	filter.aplicarFiltroEmCopia(novaImagem, outraImagem);
