@@ -1,5 +1,6 @@
 #include "filtro.hpp"
 #include <math.h>
+#include <iostream>
 
 using namespace std;
 
@@ -30,7 +31,6 @@ Filtro::Filtro(vector<int> mascaraEspecial, int divisor){
 void Filtro::aplicarFiltro(ImagemPGM &imagem){
 	int i , j, x , y, valor;
 	int *pixels = imagem.getPixels(); 
-		
 	
 	for (i = limite; i < imagem.getLargura() - limite; i++){
 		for(j = limite; imagem.getAltura() - limite; i++){
@@ -52,10 +52,9 @@ void Filtro::aplicarFiltro(ImagemPGM &imagem){
 	}
 }
 
-ImagemPGM Filtro::aplicarFiltroEmCopia(ImagemPGM imagem){
-	ImagemPGM copia = imagem;
+void Filtro::aplicarFiltroEmCopia(ImagemPGM &imagem, ImagemPGM &copia){
+	copia.copiar(imagem);
 	aplicarFiltro(copia);
-	return copia;
 }
 
 void Filtro::setLimite(int limite){
