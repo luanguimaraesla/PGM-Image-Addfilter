@@ -32,8 +32,8 @@ void Filtro::aplicarFiltro(ImagemPGM &imagem){
 	int i , j, x , y, valor;
 	int *pixels = imagem.getPixels(); 
 	
-	for (i = limite; i < imagem.getLargura() - limite; i++){
-		for(j = limite; imagem.getAltura() - limite; i++){
+	for (i = getLimite(); i < (imagem.getLargura() - getLimite()); i++){
+		for(j = getLimite(); j < (imagem.getAltura() - getLimite()); j++){
 			valor = 0;
 			for(x = -1; x <= 1; x++){
 				for(y = -1; y <= 1; y++){
@@ -66,7 +66,12 @@ int Filtro::getLimite(){
 }
 
 void Filtro::setMascaraEspacial(vector<int> &mascaraEspacial){
-	this->mascaraEspacial = mascaraEspacial;
+	int x;
+	tamanho = mascaraEspacial.size();
+		
+	for(x=0; x<tamanho; x++){
+		(this->mascaraEspacial).push_back(mascaraEspacial[x]);
+	}
 }
 
 vector<int> Filtro::getMascaraEspacial(){
