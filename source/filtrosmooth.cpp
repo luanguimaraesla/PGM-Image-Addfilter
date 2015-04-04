@@ -1,6 +1,5 @@
 #include "filtrosmooth.hpp"
 #include <vector>
-#include <iostream>
 
 FiltroSmooth::FiltroSmooth(){
 	vector<int> mascaraSmooth(9,1);
