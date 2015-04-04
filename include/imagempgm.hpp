@@ -14,6 +14,7 @@ class ImagemPGM : public Imagem{
 	public:
 		ImagemPGM();
 		ImagemPGM(string caminho);
+		void copiar(ImagemPGM& imagem);
 		void abrirImagem(string caminho);
 		void salvar();
 		void salvar(string caminho);

@@ -12,6 +12,28 @@ ImagemPGM::ImagemPGM(string caminho){
 	abrirImagem(caminho);	
 }
 
+/*
+ *	Método que copia uma imagemPGM para a outra.
+ *	NOTA: Implementar sobrescrita do operador "=" para realizar essa função.
+ *
+ */
+
+void ImagemPGM::copiar(ImagemPGM &imagem){
+	int c;
+	int *pixelsToCopy = imagem.getPixels();
+	int *pixels;
+
+	pixels = (int *) new int [sizeof(int) * imagem.getAltura() * imagem.getLargura()];
+	for(c = 0; c < imagem.getAltura() * imagem.getLargura();c++)
+		pixels[c] = pixelsToCopy[c];
+
+	this->setPixels(pixels);
+	this->setIdentificador(imagem.getIdentificador());
+	this->setDimensoes(imagem.getLargura(), imagem.getAltura());
+	this->setComentario(imagem.getComentario());
+	this->setNivelMaximoDeCinza(imagem.getNivelMaximoDeCinza());
+}
+
 void ImagemPGM::abrirImagem(string caminho){
 
 	ifstream arquivo; 	// Variável que armazenará o arquivo da imagem.
@@ -77,12 +99,13 @@ void ImagemPGM::abrirImagem(string caminho){
 		cout << "Desculpe, operacao falhou! Exception Nº " << e << endl;
 	}
 
-	arquivo.close();
-	
+	arquivo.close();	
 }
+
 /*
  *	Salva o arquivo PGM no mesmo caminho em que ele foi aberto.
  */
+
 void ImagemPGM::salvar(){
 	salvar(getCaminho());
 }
@@ -92,6 +115,7 @@ void ImagemPGM::salvar(){
  *	Esse método é muito semelhante ao método de leitura e realiza exatamente o procedimento inverso.
  *	Note que usa-se o método write para escrever cada posição do vetor que contém os pixels no arquivo.
  */
+
 void ImagemPGM::salvar(string caminho){
 	ofstream novoArquivo;
 	int contador;
@@ -134,4 +158,3 @@ void ImagemPGM::setComentario(string comentario){
 string ImagemPGM::getComentario(){
 	return comentario;
 }
-
