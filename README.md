@@ -1,8 +1,8 @@
-## Filtros em Imagens PGM
+# Filtros em Imagens PGM
 
 Esse programa foi desenvolvido para aplicar filtros (*negativo*, *sharpen*, *smooth*) em imagens PGM (*Portable Gray Map*).
 
-### Como Compilar e Executar
+## Como Compilar e Executar
 
 Para compilar e executar o programa em um sistema operacional Linux, siga as seguintes instruções:
 
@@ -15,7 +15,7 @@ Para compilar e executar o programa em um sistema operacional Linux, siga as seg
 * Execute o binário final:
 	**$ ./finalBinary**
 
-### Funcionamento
+## Funcionamento
 
 O funcionamento do programa está descrito a seguir:
 
@@ -24,7 +24,7 @@ O funcionamento do programa está descrito a seguir:
 * Escolha como deseja salvar a imagem resultante.
 * Abra o diretório onde a imagem foi salva e veja o resultado.
 
-### Formato
+## Formato
 
 É importante salientar que esse programa foi desenvolvido para trabalhar com imagens do tipo PGM cujo número mágio é **P5** e não **P2**.
  
