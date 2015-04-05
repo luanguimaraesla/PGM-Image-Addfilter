@@ -3,3 +3,5 @@
 main
 *.pgm
 bin/finalBinary
+*.odt
+*.odt#
