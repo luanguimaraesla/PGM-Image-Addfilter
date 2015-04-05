@@ -1,4 +1,5 @@
 #include "menu.hpp"
+#include "filtro.hpp"
 #include "filtronegativo.hpp"
 #include "filtrosmooth.hpp"
 #include "filtrosharpen.hpp"
@@ -21,19 +22,20 @@ void Menu::iniciar(){
 }
 
 void Menu::aplicarUmFiltro(int opcao, ImagemPGM &imagem, ImagemPGM &copia){
-	FiltroNegativo fnegativo;
-	FiltroSharpen fsharpen;
-	FiltroSmooth fsmooth;
+	Filtro *filtro;	
 
 	switch(opcao){
 		case 1:
-			fnegativo.aplicarFiltroEmCopia(imagem, copia);
+			filtro = (Filtro *) new FiltroNegativo();
+			filtro->aplicarFiltroEmCopia(imagem, copia);
 			break;
 		case 2:
-			fsmooth.aplicarFiltroEmCopia(imagem, copia);
+			filtro = (Filtro *) new FiltroSmooth();
+			filtro->aplicarFiltroEmCopia(imagem, copia);
 			break;
 		case 3:
-			fsharpen.aplicarFiltroEmCopia(imagem, copia);
+			filtro = (Filtro *) new FiltroSharpen();
+			filtro->aplicarFiltroEmCopia(imagem, copia);
 			break;
 		default:
 			cout << "Tchau!" <<endl;
@@ -67,7 +69,7 @@ int Menu::menuSalvar(){
 	cout <<endl;	
 	cout << "Selecione uma opção de salvamento: " <<endl;
 	cout <<endl;
-	cout << "0. Sair sem salvar.\n1. Sobrescrever arquivo original.\n2. Salvar em outro caminho.\n3. Salvar e testar outros filtros.\n4. Aplicar mais filtros a esta imagem antes de salvar.\n\nEscolha: "<<endl;
+	cout << "0. Sair sem salvar.\n1. Sobrescrever arquivo original.\n2. Salvar em outro caminho.\n3. Salvar e testar outros filtros.\n4. Aplicar mais filtros a esta imagem antes de salvar."<<endl;
 	
 	return lerOpcao(0,4);
 }

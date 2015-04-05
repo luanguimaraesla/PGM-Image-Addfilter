@@ -15,8 +15,8 @@ class Filtro{
 		Filtro();
 		Filtro(vector<int> mascaraEspacial);
 		Filtro(vector<int> mascaraEspacial, int div);
-		void aplicarFiltro(ImagemPGM &imagem);
-		void aplicarFiltroEmCopia(ImagemPGM &imagem, ImagemPGM &copia);
+		virtual void aplicarFiltro(ImagemPGM &imagem);
+		virtual void aplicarFiltroEmCopia(ImagemPGM &imagem, ImagemPGM &copia);
 		void setMascaraEspacial(vector<int> &mascaraEspacial);
 		vector<int> getMascaraEspacial();
 		void setTamanho(int tamanho);
