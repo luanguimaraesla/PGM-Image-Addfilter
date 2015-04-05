@@ -1,9 +1,9 @@
 #ifndef FILTRO_NEGATIVO_H
 #define FILTRO_NEGATIVO_H
 
-#include "filtro.hpp"
+#include "imagempgm.hpp"
 
-class FiltroNegativo : public Filtro{
+class FiltroNegativo{
 	public:
 		FiltroNegativo();
 		void aplicarFiltro(ImagemPGM &imagem);

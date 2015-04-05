@@ -2,10 +2,7 @@
 
 using namespace std;
 
-FiltroNegativo::FiltroNegativo():Filtro(){
-	setTamanho(0);
-	setLimite(0);
-	setDivisor(1);
+FiltroNegativo::FiltroNegativo(){
 }
 
 void FiltroNegativo::aplicarFiltro(ImagemPGM &imagem){
