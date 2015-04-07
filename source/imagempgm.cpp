@@ -27,6 +27,7 @@ void ImagemPGM::copiar(ImagemPGM &imagem){
 	for(c = 0; c < imagem.getAltura() * imagem.getLargura();c++)
 		pixels[c] = pixelsToCopy[c];
 
+	this->setCaminho(imagem.getCaminho());
 	this->setPixels(pixels);
 	this->setIdentificador(imagem.getIdentificador());
 	this->setDimensoes(imagem.getLargura(), imagem.getAltura());
@@ -89,8 +90,8 @@ void ImagemPGM::abrirImagem(string caminho){
 			setComentario(comentario);
 			setIdentificador(id);
 			setNivelMaximoDeCinza(nivelMaximoDeCinza);
-			setPixels(pixels);
-
+			setPixels(pixels);			
+			
 			delete [] reader; // Libera o espaço de memória do vetor.
 	
 		}
