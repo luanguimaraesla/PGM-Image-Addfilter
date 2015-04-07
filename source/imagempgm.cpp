@@ -54,7 +54,8 @@ void ImagemPGM::abrirImagem(string caminho){
 		// Compara a primeira linha com "P5" para verificar se é uma imagem do tipo PGM
 		if(id.compare("P5") != 0){
 			// Se não for, imprime-se uma mensagem de erro e nada do que vem a seguir será executado.
-			cout << "Desculpe, abra um arquivo PGM!" <<endl;
+			cout << "Desculpe, abra um arquivo de formato PGM!" <<endl;
+			exit(0);
 		}
 		else{
 			cout << "Arquivo PGM!" <<endl;
@@ -97,6 +98,7 @@ void ImagemPGM::abrirImagem(string caminho){
 	catch (int e){
 		//em caso de qualquer erro, apresentar essa mensagem para o usuário
 		cout << "Desculpe, operacao falhou! Exception Nº " << e << endl;
+		exit(0);
 	}
 
 	arquivo.close();	
