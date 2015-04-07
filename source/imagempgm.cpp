@@ -68,7 +68,10 @@ void ImagemPGM::abrirImagem(string caminho){
 			arquivo >> x;
 			arquivo >> y;
 			arquivo >> nivelMaximoDeCinza;
-			cout << "X: " << x << " Y: " << y << " Nivel: "<< nivelMaximoDeCinza <<endl;
+			cout << "X: " << x << " Y: " << y << " Nivel de Cinza: "<< nivelMaximoDeCinza <<endl;
+			
+			// Pular espaço em branco.			
+			arquivo.get();
 
 			// Criando o vetor que armazenará os pixels.
 			pixels = (int *) new int [sizeof(int) * x * y];
