@@ -5,26 +5,9 @@
 #include <vector>
 
 class Filtro{
-	private:
-		vector<int> mascaraEspacial;
-		int tamanho;		
-		int limite;
-		int divisor;
-
 	public:
-		Filtro();
-		Filtro(vector<int> mascaraEspacial);
-		Filtro(vector<int> mascaraEspacial, int div);
-		virtual void aplicarFiltro(ImagemPGM &imagem);
-		virtual void aplicarFiltroEmCopia(ImagemPGM &imagem, ImagemPGM &copia);
-		void setMascaraEspacial(vector<int> &mascaraEspacial);
-		vector<int> getMascaraEspacial();
-		void setTamanho(int tamanho);
-		int getTamanho();
-		void setLimite(int limite);
-		int getLimite();
-		void setDivisor(int div);
-		int getDivisor();		
+		virtual void aplicarFiltro(ImagemPGM &imagem) = 0;
+		virtual void aplicarFiltroEmCopia(ImagemPGM &imagem, ImagemPGM &copia) = 0;		
 };
 
 #endif

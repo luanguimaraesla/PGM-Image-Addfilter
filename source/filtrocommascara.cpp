@@ -1,14 +1,13 @@
-#include "filtro.hpp"
+#include "filtrocommascara.hpp"
 #include <math.h>
-#include <iostream>
 
 using namespace std;
 
-Filtro::Filtro(){
+FiltroComMascara::FiltroComMascara(){
 	mascaraEspacial.resize(0);
 }
 
-Filtro::Filtro(vector<int> mascaraEspacial){	
+FiltroComMascara::FiltroComMascara(vector<int> mascaraEspacial){	
 	int tamanho = sqrt(mascaraEspacial.size());
 	int limite = tamanho/2;
 
@@ -18,7 +17,7 @@ Filtro::Filtro(vector<int> mascaraEspacial){
 	setDivisor(1);
 }
 
-Filtro::Filtro(vector<int> mascaraEspecial, int divisor){
+FiltroComMascara::FiltroComMascara(vector<int> mascaraEspecial, int divisor){
 	int tamanho = sqrt(mascaraEspacial.size());
 	int limite = tamanho/2;
 
@@ -28,7 +27,7 @@ Filtro::Filtro(vector<int> mascaraEspecial, int divisor){
 	setDivisor(divisor);
 }
 
-void Filtro::aplicarFiltro(ImagemPGM &imagem){
+void FiltroComMascara::aplicarFiltro(ImagemPGM &imagem){
 	int i , j, x , y, valor;
 	int *pixels = imagem.getPixels(); 
 	
@@ -52,44 +51,42 @@ void Filtro::aplicarFiltro(ImagemPGM &imagem){
 	}
 }
 
-void Filtro::aplicarFiltroEmCopia(ImagemPGM &imagem, ImagemPGM &copia){
+void FiltroComMascara::aplicarFiltroEmCopia(ImagemPGM &imagem, ImagemPGM &copia){
 	copia.copiar(imagem);
 	aplicarFiltro(copia);
 }
 
-void Filtro::setLimite(int limite){
+void FiltroComMascara::setLimite(int limite){
 	this->limite = limite;
 }
 
-int Filtro::getLimite(){
+int FiltroComMascara::getLimite(){
 	return limite;
 }
 
-void Filtro::setMascaraEspacial(vector<int> &mascaraEspacial){
+void FiltroComMascara::setMascaraEspacial(vector<int> &mascaraEspacial){
 	int x;
-	tamanho = mascaraEspacial.size();
-		
-	for(x=0; x<tamanho; x++){
+	tamanho = mascaraEspacial.size();	
+	for(x=0; x<tamanho; x++)
 		(this->mascaraEspacial).push_back(mascaraEspacial[x]);
-	}
 }
 
-vector<int> Filtro::getMascaraEspacial(){
+vector<int> FiltroComMascara::getMascaraEspacial(){
 	return mascaraEspacial;
 }
 
-void Filtro::setTamanho(int tamanho){
+void FiltroComMascara::setTamanho(int tamanho){
 	this->tamanho = tamanho;
 }
 
-int Filtro::getTamanho(){
+int FiltroComMascara::getTamanho(){
 	return tamanho;
 }
 
-void Filtro::setDivisor(int divisor){
+void FiltroComMascara::setDivisor(int divisor){
 	this->divisor = divisor;
 }
 
-int Filtro::getDivisor(){
+int FiltroComMascara::getDivisor(){
 	return divisor;
 }
