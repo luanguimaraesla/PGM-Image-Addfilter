@@ -1,9 +1,9 @@
 #ifndef FILTRO_SMOOTH_H
 #define FILTRO_SMOOTH_H
 
-#include "filtro.hpp"
+#include "filtrocommascara.hpp"
 
-class FiltroSmooth : public Filtro{
+class FiltroSmooth : public FiltroComMascara{
 	public:
 		FiltroSmooth();
 };

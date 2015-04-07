@@ -2,7 +2,7 @@
 
 using namespace std;
 
-FiltroNegativo::FiltroNegativo():Filtro(){
+FiltroNegativo::FiltroNegativo(){
 }
 
 void FiltroNegativo::aplicarFiltro(ImagemPGM &imagem){

@@ -1,9 +1,9 @@
 #ifndef FILTRO_SHARPEN_H
 #define FILTRO_SHARPEN_H
 
-#include "filtro.hpp"
+#include "filtrocommascara.hpp"
 
-class FiltroSharpen : public Filtro{
+class FiltroSharpen : public FiltroComMascara{
 	public:
 		FiltroSharpen();
 };
