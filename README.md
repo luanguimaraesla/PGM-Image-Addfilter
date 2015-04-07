@@ -21,15 +21,15 @@ O funcionamento do programa está descrito a seguir:
 
 * O programa pedirá para inserir o diretório onde está a imagem.
 * Escolha o tipo de filtro que deseja aplicar.
-* Escolha como deseja salvar a imagem resultante.
+* Escolha entre as opções para salvar ou aplicar mais filtros a imagem.
 * Abra o diretório onde a imagem foi salva e veja o resultado.
 
 ## Formato
 
-É importante salientar que esse programa foi desenvolvido para trabalhar com imagens do tipo PGM cujo número mágio é **P5** e não **P2**.
+É importante salientar que esse programa foi desenvolvido para trabalhar com imagens do tipo PGM cujo número mágico é **P5** e não **P2**.
  
-Conhecido como *Plain PGM*, o formato **P2** corresponde a uma versão derivada do estilo **P5** (conhecido por *Raw PGM*) e contém algumas diferenças estruturais que não garantem o funcionamento adequado desse programa.
+Conhecido como *Plain PGM*, o formato **P2** corresponde a uma versão derivada do estilo **P5** (*Raw PGM*) e contém algumas diferenças estruturais que não garantem o funcionamento adequado desse programa.
 
-Para mais informações a respeito do formato PGM, [clique aqui](http://netpbm.sourceforge.net/doc/pgm.html)
+Para mais informações a respeito do formato PGM, [clique aqui](http://netpbm.sourceforge.net/doc/pgm.html).
 
 
