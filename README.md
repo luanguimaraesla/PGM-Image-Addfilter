@@ -15,6 +15,8 @@ Para compilar e executar o programa em um sistema operacional Linux, siga as seg
 * Execute o binário final:
 	**$ ./finalBinary**
 
+Obs.: para facilitar o teste desse programa, coloque a imagem pgm na pasta onde se encontra o binário final e digite apenas o nome do arquivo. Caso contrário, ao ser solicitado, insira o caminho relativo ao binário final.
+
 ## Funcionamento
 
 O funcionamento do programa está descrito a seguir:
