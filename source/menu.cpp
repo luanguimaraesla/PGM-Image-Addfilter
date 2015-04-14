@@ -80,7 +80,7 @@ string Menu::menuCaminho(){
 	string caminho;	
 	
 	cout <<endl;
-	cout <<"Digite o caminho do arquivo: ";
+	cout <<"Digite o caminho relativo do arquivo: ";
 	cin >> caminho;
 	
 	return caminho;
