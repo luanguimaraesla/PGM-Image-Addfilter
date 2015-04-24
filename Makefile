@@ -26,4 +26,4 @@ clean:
 	rm -rf $(OBJFOLDER)*.o
 
 run:
-	$(INCFOLDER)finalBinary
+	$(BINFOLDER)finalBinary
