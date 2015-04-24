@@ -15,7 +15,7 @@ Para compilar e executar o programa em um sistema operacional Linux, siga as seg
 * Execute:
 	**$ make run**
 
-Obs.: para facilitar o teste desse programa, coloque a imagem pgm na pasta onde se encontra o binário final e digite apenas o nome do arquivo. Caso contrário, ao ser solicitado, insira o caminho relativo ao binário final.
+Obs.: para facilitar o teste desse programa, coloque a imagem pgm na pasta onde se encontra o binário final (se executar o binário diretamente) ou no diretório raiz do projeto (se executar via 'make') e digite apenas o nome do arquivo. Caso contrário, ao ser solicitado, insira o caminho relativo ao binário final.
 
 ## Funcionamento
 
